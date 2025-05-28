@@ -1,0 +1,6 @@
+gspread
+json
+oauth2client
+streamlit
+google
+python-dotenv
