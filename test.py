@@ -21,7 +21,10 @@ if st.button("実行"):
             for rec in records[:5]:
                 raw = rec.get("質問")
                 response = classify_and_summarize(raw)
+                st.write(f"処理中: {raw}")
                 parsed = parse_json(response)
+                if isinstance(parsed, list) and len(parsed) > 0:
+                    parsed = parsed[0]
                 parsed["original"] = raw
                 results.append(parsed)
             df = build_dataframe(results)
