@@ -1,5 +1,5 @@
 import streamlit as st
-
+from main import fetch_sheet
 
 class UI:
     def __init__(self):
@@ -8,16 +8,18 @@ class UI:
 
 st.title("質問分類・要約ダッシュボード")
 
-st.subheader("ID 1: カテゴリA")
-st.write("**原文**: これはサンプルの質問です。")
-st.write("**要約**: これはサンプルの要約です。")
-st.markdown("---")
-st.subheader("ID 2: カテゴリB")
-st.write("**原文**: これは別のサンプルの質問です。")
-st.write("**要約**: これは別のサンプルの要約です。")
-st.markdown("---")
+sheet_url = st.text_input("Google SpreadsheetのURLを入力してください：")
+if st.button("実行"):
+    if not sheet_url:
+        st.error("URLを入力してください。")
+    else:
+        try:
+            records = fetch_sheet(sheet_url)
+            st.success(f"{len(records)}件のデータを取得しました。")
+            results = []
+            
+            for rec in records[:5]:
+                pass
+        except Exception as e:
+            st.error(f"エラーが発生しました {e}")
 
-if st.button("新しい質問を追加"):
-    st.write("新しい質問を追加する機能はまだ実装されていません。")
-input = st.chat_input("スプレッドシートのURLを入力してください")
-print(input)

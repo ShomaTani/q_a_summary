@@ -25,14 +25,9 @@ creds = Credentials.from_service_account_file(
 
 gc = gspread.authorize(creds)
 
-spreadsheet_url = "https://docs.google.com/spreadsheets/d/1gUXLRZQjD4M9a5w9m256CRtMAbyWNdr8psfOl_rplIs/edit?gid=0#gid=0"
-sheet = gc.open_by_url(spreadsheet_url).sheet1
-rows = sheet.get_all_records()
-
-with open("questions.json", "w", encoding="utf-8") as f:
-    json.dump(rows, f, ensure_ascii=False, indent=2)
-
-print(rows)
+def fetch_sheet(sheet_url):
+    sheet = gc.open_by_url(sheet_url).sheet1
+    return sheet.get_all_records()
 
 
 def classify_and_summarize(test):
@@ -63,5 +58,5 @@ def classify_and_summarize(test):
     return json.loads(response.text)
 
 
-for rec in rows:
-    print(classify_and_summarize(rec["質問"]))
+# for rec in rows:
+#     print(classify_and_summarize(rec["質問"]))
