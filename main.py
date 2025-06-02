@@ -31,6 +31,7 @@ def fetch_sheet(sheet_url):
     sheet = gc.open_by_url(sheet_url).sheet1
     return sheet.get_all_records()
 
+
 def strip_text(s: str) -> dict:
     text = s.strip()
     if text.startswith("```json") and text.endswith("```"):
@@ -38,6 +39,7 @@ def strip_text(s: str) -> dict:
     elif text.startswith("```") and text.endswith("```"):
         text = text[3:-3].strip()
     return text
+
 
 def classify_and_summarize(test):
     prompt = f"""
@@ -101,4 +103,5 @@ def build_dataframe(results: list[dict]) -> pd.DataFrame:
     # })
     return df
 
-# classify_and_summarize("このコードは何をしますか？") 
+
+# classify_and_summarize("このコードは何をしますか？")
