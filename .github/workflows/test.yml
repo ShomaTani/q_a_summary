@@ -32,7 +32,7 @@ jobs:
         
     - name: Format check with black
       run: |
-        black --check 
+        black --check .
         
     # - name: Run tests
     #   run: |
