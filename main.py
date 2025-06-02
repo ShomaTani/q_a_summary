@@ -6,6 +6,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 import os
+import pandas as pd
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -59,5 +60,27 @@ def classify_and_summarize(test):
     return json.loads(response.text)
 
 
-# for rec in rows:
-#     print(classify_and_summarize(rec["質問"]))
+def parse_json(text: str) -> dict:
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        return {
+            "error": "JSONの読み込みに失敗しました。入力が正しい形式であるか確認してください。"
+        }
+
+
+def build_dataframe(results: list[dict]) -> pd.DataFrame:
+    if not results:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(results)
+    # df = df.rename(columns={
+    #     "分類": "Category",
+    #     "類似質問数": "Similar Questions Count",
+    #     "講師回答の必要性": "Instructor Response Necessity",
+    #     "講義との関連性": "Lecture Relevance",
+    #     "一般性": "Generality",
+    #     "要約": "Summary",
+    #     "original": "Original Question"
+    # })
+    return df
