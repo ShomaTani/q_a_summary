@@ -1,6 +1,7 @@
 import streamlit as st
 from main import fetch_sheet
 
+
 class UI:
     def __init__(self):
         pass
@@ -17,9 +18,8 @@ if st.button("実行"):
             records = fetch_sheet(sheet_url)
             st.success(f"{len(records)}件のデータを取得しました。")
             results = []
-            
+
             for rec in records[:5]:
                 pass
         except Exception as e:
             st.error(f"エラーが発生しました {e}")
-

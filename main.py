@@ -25,6 +25,7 @@ creds = Credentials.from_service_account_file(
 
 gc = gspread.authorize(creds)
 
+
 def fetch_sheet(sheet_url):
     sheet = gc.open_by_url(sheet_url).sheet1
     return sheet.get_all_records()
