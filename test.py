@@ -1,9 +1,11 @@
 import streamlit as st
 
+
 class UI:
     def __init__(self):
         pass
-    
+
+
 st.title("質問分類・要約ダッシュボード")
 
 st.subheader("ID 1: カテゴリA")

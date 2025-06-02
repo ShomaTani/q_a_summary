@@ -14,12 +14,13 @@ if not GEMINI_API_KEY:
     raise RuntimeError("GEMINI_API_KEY not set in environment")
 print(os.environ.get("GEMINI_API_KEY"))
 
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets", 
-         "https://www.googleapis.com/auth/drive"]
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+]
 
 creds = Credentials.from_service_account_file(
-    filename="service_account.json",
-    scopes=SCOPES
+    filename="service_account.json", scopes=SCOPES
 )
 
 gc = gspread.authorize(creds)
@@ -28,10 +29,11 @@ spreadsheet_url = "https://docs.google.com/spreadsheets/d/1gUXLRZQjD4M9a5w9m256C
 sheet = gc.open_by_url(spreadsheet_url).sheet1
 rows = sheet.get_all_records()
 
-with open('questions.json', 'w', encoding='utf-8') as f:
+with open("questions.json", "w", encoding="utf-8") as f:
     json.dump(rows, f, ensure_ascii=False, indent=2)
-    
+
 print(rows)
+
 
 def classify_and_summarize(test):
     prompt = f"""
@@ -56,12 +58,10 @@ def classify_and_summarize(test):
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         contents=[prompt],
-        config=types.GenerateContentConfig(
-            max_output_tokens=500,
-            temperature=0.1
-        )
+        config=types.GenerateContentConfig(max_output_tokens=500, temperature=0.1),
     )
     return json.loads(response.text)
+
 
 for rec in rows:
     print(classify_and_summarize(rec["質問"]))
