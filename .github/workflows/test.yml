@@ -34,6 +34,3 @@ jobs:
       run: |
         black --check .
         
-    # - name: Run tests
-    #   run: |
-    #     pytest day5/演習3/tests/test_data.py -v
