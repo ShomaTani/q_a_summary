@@ -3,7 +3,7 @@
 pip install -r requirements.txt<br>
 で必要なライブラリをインストール<br>
 
-<h4>GeminiAPI</h4>
+<h3>GeminiAPI</h3>
 API Keyを取得し、.envにペーストする<br>
 
 <h3>スプレッドシートAPI</h3>
@@ -11,6 +11,6 @@ Googleでサービスアカウントを作成
 スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える<br>
 service_account.jsonをダウンロードしてディレクトリにコピー<br>
 
-<h2>実装</h2>
+<h3>実装</h3>
 python -m streamlit main.py<br>
 でローカルにアクセスできるようになる<br>
