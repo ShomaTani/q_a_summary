@@ -40,7 +40,7 @@ def fetch_questions(sheet_url):
         for rec in records:
             answer = rec.get("回答")
             if answer is None or str(answer).strip() == "":
-                q = rec.get("質問") 
+                q = rec.get("質問")
                 if q is not None:
                     questions.append(str(q).strip())
 
@@ -49,7 +49,7 @@ def fetch_questions(sheet_url):
             q = rec.get("質問")
             if q is not None:
                 questions.append(str(q).strip())
-                
+
     return questions
 
 
@@ -125,6 +125,7 @@ def build_dataframe(results: list[dict]) -> pd.DataFrame:
     # })
     return df
 
+
 def load_pdf(lecture_pdf):
     pdf_file_obj = None
     if lecture_pdf is not None:
@@ -132,7 +133,11 @@ def load_pdf(lecture_pdf):
             f.write(lecture_pdf.getbuffer())
         pdf_file_obj = client.files.upload(file="temp_lecture.pdf")
     return pdf_file_obj
-record = fetch_questions("https://docs.google.com/spreadsheets/d/1m_D7vPU_iLgtzHvVrtvUPIxM4Jjh7swoJWF2s8F6vR4/edit?gid=0#gid=0")
+
+
+record = fetch_questions(
+    "https://docs.google.com/spreadsheets/d/1m_D7vPU_iLgtzHvVrtvUPIxM4Jjh7swoJWF2s8F6vR4/edit?gid=0#gid=0"
+)
 # response = classify_and_summarize("record",5)
 # print(response)
 
