@@ -7,7 +7,7 @@ pip install -r requirements.txt<br>
 API Keyを取得し、.envにペーストする<br>
 
 <h3>スプレッドシートAPI</h3>
-Googleでサービスアカウントを作成
+Googleでサービスアカウントを作成<br>
 スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える<br>
 service_account.jsonをダウンロードしてディレクトリにコピー<br>
 
