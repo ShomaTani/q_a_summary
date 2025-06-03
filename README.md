@@ -1,19 +1,19 @@
-q_a_summary
+<heading>質疑応答まとめ機能</heading>
 
-pip install -r requirements.txt
-で必要なライブラリをインストール
+pip install -r requirements.txt<br>
+で必要なライブラリをインストール<br>
 
-GeminiAPI
-API Keyを取得し、.envにペーストする
+GeminiAPI<br>
+API Keyを取得し、.envにペーストする<br>
 
-スプレッドシートAPI
+スプレッドシートAPI<br>
 Googleでサービスアカウントを作成
-スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える
-service_account.jsonをダウンロードしてディレクトリにコピー
+スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える<br>
+service_account.jsonをダウンロードしてディレクトリにコピー<br>
 
-実装
-python -m streamlit main.py
-でローカルにアクセスできるようになる
+実装<br>
+python -m streamlit main.py<br>
+でローカルにアクセスできるようになる<br>
 
 
 
