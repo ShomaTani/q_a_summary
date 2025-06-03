@@ -1,19 +1,21 @@
 q_a_summary
-make service account
-update the access to include the generated service account email address
-access spreadsheet
-get_all_records->unique headers are required
-head = n -> changes the header row to row n
 
-get similar questions
-questions that are hard to be answered by LLM
-rank them 
-and show them in the order
+pip install -r requirements.txt
+で必要なライブラリをインストール
 
-途中でPDFファイルをローカルに保存しますが、最後に自動で削除されます
-最後にRequirements.txtを更新するの忘れないように
+GeminiAPI
+API Keyを取得し、.envにペーストする
 
-40.78k tokens
+スプレッドシートAPI
+Googleでサービスアカウントを作成
+スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える
+service_account.jsonをダウンロードしてディレクトリにコピー
+
+実装
+python -m streamlit main.py
+でローカルにアクセスできるようになる
+
+
 
 分類
 要約
