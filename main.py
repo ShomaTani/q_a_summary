@@ -8,15 +8,11 @@ from llm import (
 
 st.title("質問分類・要約ダッシュボード")
 
-sheet_url = st.text_input("Google SpreadsheetのURLを入力してください：")
-num = st.number_input(
-    "表示するカテゴリーの数を入力してください：", min_value=1, max_value=100, value=10
-)
+sheet_url = st.text_input("Google SpreadsheetのURL：")
+num = st.number_input("表示するカテゴリーの数：", min_value=1, max_value=100, value=10)
 
 # PDFファイルのアップロード
-lecture_pdf = st.file_uploader(
-    "講義資料(PDF)をアップロードしてください：", type=["pdf"]
-)
+lecture_pdf = st.file_uploader("講義資料(PDF)をアップロード（推奨）：", type=["pdf"])
 if lecture_pdf is not None:
     pdf_file_obj = load_pdf(lecture_pdf)
     st.success("PDFファイルがアップロードされました。")
