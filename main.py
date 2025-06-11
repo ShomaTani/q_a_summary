@@ -60,3 +60,10 @@ if st.button("実行"):
 
         except Exception as e:
             st.error(f"エラーが発生しました {e}")
+
+st.markdown("""
+---
+<div style="text-align: center; padding: 20px 0;">
+    <p> 2024 Powered by Google Gemini API </p>
+</div>
+""", unsafe_allow_html=True)
