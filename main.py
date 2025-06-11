@@ -8,15 +8,11 @@ from llm import (
 
 st.title("質問分類・要約ダッシュボード")
 
-sheet_url = st.text_input("Google SpreadsheetのURLを入力してください：")
-num = st.number_input(
-    "表示するカテゴリーの数を入力してください：", min_value=1, max_value=100, value=10
-)
+sheet_url = st.text_input("Google SpreadsheetのURL：")
+num = st.number_input("表示するカテゴリーの数：", min_value=1, max_value=100, value=10)
 
 # PDFファイルのアップロード
-lecture_pdf = st.file_uploader(
-    "講義資料(PDF)をアップロードしてください：", type=["pdf"]
-)
+lecture_pdf = st.file_uploader("講義資料(PDF)をアップロード（推奨）：", type=["pdf"])
 if lecture_pdf is not None:
     pdf_file_obj = load_pdf(lecture_pdf)
     st.success("PDFファイルがアップロードされました。")
@@ -64,3 +60,10 @@ if st.button("実行"):
 
         except Exception as e:
             st.error(f"エラーが発生しました {e}")
+
+st.markdown("""
+---
+<div style="text-align: center; padding: 20px 0;">
+    <p> 2024 Powered by Google Gemini API </p>
+</div>
+""", unsafe_allow_html=True)

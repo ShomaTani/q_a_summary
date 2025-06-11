@@ -1,26 +1,16 @@
-q_a_summary
+<h1>質疑応答まとめ機能</h1>
 
-pip install -r requirements.txt
-で必要なライブラリをインストール
+pip install -r requirements.txt<br>
+で必要なライブラリをインストール<br>
 
-GeminiAPI
-API Keyを取得し、.envにペーストする
+<h3>GeminiAPI</h3>
+API Keyを取得し、.envにペーストする<br>
 
-スプレッドシートAPI
-Googleでサービスアカウントを作成
-スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える
-service_account.jsonをダウンロードしてディレクトリにコピー
+<h3>スプレッドシートAPI</h3>
+Googleでサービスアカウントを作成<br>
+スプレッドシートのアクセスを生成されるサービスアカウントのメールアドレスに与える<br>
+service_account.jsonをダウンロードしてディレクトリにコピー<br>
 
-実装
-python -m streamlit main.py
-でローカルにアクセスできるようになる
-
-
-
-分類
-要約
-優先度順に表示
-講義資料参照
-回答していないもののみ分類＆要約
-（質問の更新ができる）
-（コストを最小限にするため、PDFは最初のみ、質問も追加のもののみ）
+<h3>実装</h3>
+python -m streamlit main.py<br>
+でローカルにアクセスできるようになる<br>
